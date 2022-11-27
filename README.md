@@ -2,6 +2,7 @@
 Este projeto tem como objetivo implementar um software para o gerenciamento de uma biblioteca.
 
 O projeto possui 6 entidades: 
+
 -Categoria
 
 -Seção
@@ -15,6 +16,7 @@ O projeto possui 6 entidades:
 -Leitor
 
 Desenvolvedores:
+
 Carlos Eduardo dos Santos Ferreira - SP3056325
 
 Lucas Leandro da Silva Paula - SP3093808
