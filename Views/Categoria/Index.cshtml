@@ -1,0 +1,39 @@
+@model IEnumerable<Livraria.Models.Categoria>
+@{
+    ViewData["Title"] = "Categorias";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhuma Categoria encontrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Categoria" asp-action="Cadastro">Cadastre uma nova Categoria</a>
+}
+else
+{
+    <table class="table table-white">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Descrição</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var categoria in Model)
+            {
+                <tr>
+                    <td>@categoria.Id</td>
+                    <td>@categoria.Nome</td>
+                    <td>@categoria.Descricao</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Categoria" asp-action="Show" asp-route-id="@categoria.Id">Ver</a>
+                        <a class="btn btn-outline-warning" asp-controller="Categoria" asp-action="Update" asp-route-id="@categoria.Id">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Categoria" asp-action="Delete" asp-route-id="@categoria.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Categoria" asp-action="Cadastro">Cadastre uma nova Categoria</a>
+}

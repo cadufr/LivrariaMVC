@@ -1,0 +1,39 @@
+@model IEnumerable<Livraria.Models.Autor>
+@{
+    ViewData["Title"] = "Autores";
+}
+<h1>@ViewData["Title"]</h1>
+
+@if(Model.Count() == 0)
+{
+    <p>Nenhum autor encontrado</p>
+    <a class="btn btn-outline-dark" asp-controller="Autor" asp-action="Cadastro">Cadastre um novo autor</a>
+}
+else
+{
+    <table class="table table-white">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Idade</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var autor in Model)
+            {
+                <tr>
+                    <td>@autor.Id</td>
+                    <td>@autor.Nome</td>
+                    <td>@autor.Idade</td>
+                    <td>
+                        <a class="btn btn-outline-info" asp-controller="Autor" asp-action="Show" asp-route-id="@autor.Id">Ver</a>
+                        <a class="btn btn-outline-warning" asp-controller="Autor" asp-action="Update" asp-route-id="@autor.Id">Update</a>
+                        <a class="btn btn-outline-danger" asp-controller="Autor" asp-action="Delete" asp-route-id="@autor.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <a class="btn btn-outline-dark" asp-controller="Autor" asp-action="Cadastro">Cadastre um novo autor</a>
+}

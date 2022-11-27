@@ -1,0 +1,17 @@
+@model Livraria.Models.Autor
+@{
+    ViewData["Title"] = "Atualizar";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form class="form" asp-controller="Autor" asp-action="Update" asp-route-id="@Model.Id" method="POST">    
+    <label for="Nome">Nome: </label>
+    <input type="text" id="Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+
+    <label for="Idade">Idade: </label>
+    <input type="number" id="Idade" name="Idade" asp-for="@Model.Idade">
+    <span asp-validation-for="@Model.Idade" class="text-Idade"></span>
+
+    <input class="submit" type="submit" value="Atualizar">
+</form>
