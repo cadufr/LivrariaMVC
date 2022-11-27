@@ -1,0 +1,17 @@
+@model Livraria.Models.Secao
+@{
+    ViewData["Title"] = "Atualizar";
+}
+<h1>@ViewData["Title"]</h1>
+
+<form class="form" asp-controller="Secao" asp-action="Update" asp-route-id="@Model.Id" method="POST">    
+    <label for="Nome">Nome: </label>
+    <input type="text" id="Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+
+    <label for="Descricao">Descrição: </label>
+    <input type="text" id="Descricao" name="Descricao" asp-for="@Model.Descricao">
+    <span asp-validation-for="@Model.Descricao" class="text-danger"></span>
+
+    <input class="submit" type="submit" value="Atualizar">
+</form>

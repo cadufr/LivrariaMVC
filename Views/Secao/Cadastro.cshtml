@@ -1,0 +1,17 @@
+@model Livraria.Models.Secao
+
+@{
+    ViewData["Title"] = "Cadastro";
+}
+
+<form class="form" id="form" asp-controller="Secao" asp-action="Cadastro" method="POST">
+    <label for="Nome">Nome: </label>
+    <input type="text" id="Nome" name="Nome" asp-for="@Model.Nome">
+    <span asp-validation-for="@Model.Nome" class="text-danger"></span>
+
+    <label for="Descricao">Descrição: </label>
+    <input type="text" id="Descricao" name="Descricao" asp-for="@Model.Descricao">
+    <span asp-validation-for="@Model.Descricao" class="text-danger"></span>
+
+    <input type="submit" value="Cadastrar">
+</form>
