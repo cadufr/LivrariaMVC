@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
-builder.Services.AddDbContext<LivrariaContext>(options => options.UseMySQL("server=localhost;database=livraria;user=root;password=Luis5lindo;"));
+builder.Services.AddDbContext<LivrariaContext>(options => options.UseMySQL("server=localhost;database=livraria;user=root;password=1234768;"));
 
 var app = builder.Build();
 

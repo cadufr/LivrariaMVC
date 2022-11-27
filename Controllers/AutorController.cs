@@ -4,29 +4,29 @@ using Livraria.Models;
 
 namespace Livraria.Controllers;
 
-public class CategoriaController : Controller
+public class AutorController : Controller
 {
     private readonly LivrariaContext _context;
-    public CategoriaController(LivrariaContext context)
+    public AutorController(LivrariaContext context)
     {
         _context = context;
     }
 
     public IActionResult Index()
     {
-        return View(_context.Categoria);
+        return View(_context.Autor);
     }
 
     public IActionResult Show(int id)
     {
-        Categoria Categoria = _context.Categoria.Find(id);
+        Autor autor = _context.Autor.Find(id);
 
-        if(Categoria == null)
+        if(autor == null)
         {
             return NotFound();
         }
 
-        return View(Categoria);
+        return View(autor);
     }
 
     [HttpGet]
@@ -36,14 +36,14 @@ public class CategoriaController : Controller
     }
 
     [HttpPost]
-    public IActionResult Cadastro(Categoria categoria)
+    public IActionResult Cadastro(Autor autor)
     {
         if(!ModelState.IsValid) 
         {
-            return View(categoria);
+            return View(autor);
         }
 
-        _context.Categoria.Add(categoria);
+        _context.Autor.Add(autor);
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
@@ -51,49 +51,47 @@ public class CategoriaController : Controller
     [HttpGet]
     public IActionResult Update(int id)
     {
-        Categoria categoria = _context.Categoria.Find(id);
+        Autor autor = _context.Autor.Find(id);
 
-        if(categoria == null)
+        if(autor == null)
         {
             return NotFound();
         }
 
-        return View(categoria);
+        return View(autor);
     }
 
     [HttpPost]
-    public IActionResult Update(Categoria categoria, int id)
+    public IActionResult Update(Autor autor, int id)
     {
         if(!ModelState.IsValid) 
         {
-            return View(categoria);
+            return View(autor);
         }
         
-        Categoria updateCategoria = _context.Categoria.Find(categoria.Id);
+        Autor updateAutor = _context.Autor.Find(autor.Id);
         
-        updateCategoria.Nome = categoria.Nome;
-        updateCategoria.Descricao = categoria.Descricao;
+        updateAutor.Nome = autor.Nome;
+        updateAutor.Idade = autor.Idade;
 
-        _context.Categoria.Update(updateCategoria);
+        _context.Autor.Update(updateAutor);
         _context.SaveChanges();
         return RedirectToAction("Index");
     }
 
     public IActionResult Delete(int id)
     {
-        Categoria categoria = _context.Categoria.Find(id);
+        Autor autor = _context.Autor.Find(id);
 
-        if(categoria == null)
+        if(autor == null)
         {
             return NotFound();
         }
         
-        _context.Categoria.Remove(_context.Categoria.Find(id));
+        _context.Autor.Remove(_context.Autor.Find(id));
         _context.SaveChanges();
 
         return RedirectToAction("Index");
     }
 
 }
-
-
