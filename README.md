@@ -3,10 +3,15 @@ Este projeto tem como objetivo implementar um software para o gerenciamento de u
 
 O projeto possui 6 entidades: 
 -Categoria
+
 -Seção
+
 -Editora
+
 -Livros
+
 -Autores
+
 -Leitor
 
 Desenvolvedores:
